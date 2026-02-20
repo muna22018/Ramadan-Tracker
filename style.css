@@ -1,0 +1,168 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body{
+  font-family: 'Rye', cursive;
+  color: #6b3f2a;
+
+  /* Full screen background */
+  background-color: #f6ecec;
+  background-image:
+    linear-gradient(to bottom, rgba(246,236,236,0.70), rgba(246,236,236,0.70)),
+    url("background.jpg");
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.container{
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 18px;
+}
+
+.title{
+  text-align: center;
+  font-size: 52px;
+  margin: 0 0 18px;
+  color: #6b3f2a;
+  font-family: 'Rye', cursive;
+}
+
+.top-row{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0 18px;
+}
+
+.stat{
+  font-size: 20px;
+}
+
+.stat-number{
+  font-weight: 700;
+  color: #f6b5c6;
+}
+
+.month-title{
+  text-align:center;
+  font-size: 32px;
+  margin: 10px 0 10px;
+}
+
+/* ONE BIG BOX with inner borders (like a calendar) */
+.calendar-box{
+  border: 3px solid #6b3f2a;
+  border-radius: 14px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* <-- matches your sketch rows */
+  direction: rtl; /* <-- to have the first day on the right */
+}
+
+/* Each day cell has only inner lines */
+.day-cell{
+  min-height: 68px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 26px;
+  cursor:pointer;
+  user-select:none;
+  border-left: 1px solid #e4c3cc;
+  border-top: 1px solid #e4c3cc;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(2px);
+}
+
+.day-cell.fasted{
+  background: #6b3f2a;
+  color: #fff;
+  font-weight: 700;
+}
+
+.day-cell.makeup{
+  background: #f6b5c6;
+  color: #3a1f2b;
+  font-weight: 700;
+}
+
+/* Legend (bottom left-ish like your sketch) */
+.legend{
+  margin-top: 18px;
+  display:flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.legend-item{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  font-size: 18px;
+}
+
+.dot{
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display:inline-block;
+  border: 1px solid #333;
+}
+
+.dot.fasted{ background:#6b3f2a; border-color:#6b3f2a; }
+.dot.makeup{ background:#f6b5c6; border-color:#f6b5c6; }
+
+/* Modal */
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  display: none;               /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  padding: 20px;
+}
+
+.modal-overlay.show{
+  display:flex;
+}
+
+.modal{
+  width: min(420px, 100%);
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  border: 2px solid #6b3f2a;
+}
+
+.modal-title{
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  text-align:center;
+}
+
+.modal-actions{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn{
+  border:none;
+  border-radius: 12px;
+  padding: 12px 10px;
+  cursor:pointer;
+  font-size: 16px;
+}
+
+.btn.fasted{ background:#6b3f2a; color:white; }
+.btn.makeup{ background:#f6b5c6; color:#3a1f2b; }
+.btn.clear{ background:#eee; }
+.btn.cancel{ width:100%; background:#fff3f6; }

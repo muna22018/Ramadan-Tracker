@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Ramadan Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+  <h1 class="title">Ramadan Tracker</h1>
+
+  <div class="top-row">
+    <div id="fasted-count" class="stat">Days Fasted: 0</div>
+    <div id="days-left" class="stat">Days Left: 30</div>
+  </div>
+
+  <h2 class="month-title">شهر رمضان</h2>
+
+  <div class="calendar-box" id="days-container"></div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="dot fasted"></span> Fasted</div>
+    <div class="legend-item"><span class="dot makeup"></span> Make up</div>
+  </div>
+</div>
+
+  <!-- Popup / Modal -->
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-title" id="modal-title">Day</div>
+
+      <div class="modal-actions">
+        <button id="btn-fasted" class="btn fasted">Fasted</button>
+        <button id="btn-makeup" class="btn makeup">Make up</button>
+        <button id="btn-clear" class="btn clear">Clear</button>
+      </div>
+
+      <button id="btn-cancel" class="btn cancel">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
